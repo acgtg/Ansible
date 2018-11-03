@@ -1,0 +1,10 @@
+---
+- hosts: localhost
+  become: yes
+  tasks:
+    - name: Extend the logical volume to 4g
+      lvol:
+        vg: rootvg
+        lv: optlv
+        size: 4000
+        resizefs: true

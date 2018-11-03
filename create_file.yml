@@ -1,0 +1,20 @@
+---
+- hosts: all
+  become: yes
+  tasks:
+    - name: create directory
+      file:
+        path: /etc/opt/besclient
+        state: directory
+        owner: test
+        group: test
+        mode: 0775
+        recurse: yes
+
+    - name: copy file
+      copy:
+        src: /home/test/besclient.conf
+        dest: /etc/opt/besclient/besclient.conf
+        owner: test
+        group: test
+        mode: 0644
