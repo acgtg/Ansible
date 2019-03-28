@@ -7,4 +7,5 @@
         vg: rootvg
         lv: optlv
         size: 4000
-        resizefs: true
+        resizefs: yes
+        shrink: no
