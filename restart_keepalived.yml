@@ -1,0 +1,13 @@
+---
+- name: restart service if needed
+  hosts: localhost
+  become: yes
+
+  tasks:
+    - name: display secondary ip
+      debug:
+        var: ansible_facts['eth0']['ipv4_secondaries']
+
+    - name: restart keepalived if secondary IP is not defined
+      service: name=keepalived state=restarted
+      when: ansible_facts['eth0']['ipv4_secondaries'] is not defined
