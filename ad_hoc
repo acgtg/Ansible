@@ -1,0 +1,2 @@
+ansible all -i remote_hosts -m ansible.builtin.service -a "name=keepalived state=restarted" -u username --become
+# put in remote_hosts hosts you want to restart service
